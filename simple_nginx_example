@@ -1,0 +1,31 @@
+Run simple NGINX server
+
+ancl@ansible01:~$ mkdir NGINX
+ancl@ansible01:~$ $ cd NGINX
+ancl@ansible01:~/NGINX$ echo  "FROM nginx" > Dockerfile
+ancl@ansible01:~/NGINX$ echo  "COPY index.html /usr/share/nginx/html/index.html" >> Dockerfile
+ancl@ansible01:~/NGINX$ echo "Hello World" > index.html
+
+ancl@ansible01:~/NGINX$ docker build -t ei3kf .
+Sending build context to Docker daemon   5.12kB
+Step 1/2 : FROM nginx
+ ---> 53f3fd8007f7
+Step 2/2 : COPY index.html /usr/share/nginx/html/index.html
+ ---> Using cache
+ ---> a12ccb126b6c
+Successfully built a12ccb126b6c
+Successfully tagged ei3kf:latest
+
+ancl@ansible01:~/NGINX$ docker run -d  -p 8080:80 ei3kf
+369add876cf9aef56c3fecb25f33982d535c3c2928f91bbbb3e760c2ce9148ee
+
+ancl@ansible01:~/NGINX$ docker image ls ei3kf
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ei3kf               latest              a12ccb126b6c        5 minutes ago       109MB
+
+ancl@ansible01:~/NGINX$ docker container ls
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                  NAMES
+369add876cf9        ei3kf               "nginx -g 'daemon of…"   About a minute ago   Up About a minute   0.0.0.0:8080->80/tcp   youthful_shtern
+
+ancl@ansible01:~$ curl localhost:8080
+Hello World
