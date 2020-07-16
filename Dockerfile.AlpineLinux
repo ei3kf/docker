@@ -1,0 +1,36 @@
+FROM python:2.7.16-alpine
+WORKDIR /workspace
+
+RUN apk -v --no-cache add \
+    bash \
+    curl \
+    wget \
+    jq \
+    git \
+    gcc \
+    libffi-dev \
+    groff \
+    less \
+    zip \
+    g++ \
+    libxslt-dev \
+    make \
+    automake \
+    autoconf \
+    libtool \
+    nodejs \
+    openssl-dev \
+    openssl \
+    parallel \
+    npm 
+
+RUN pip install \ 
+    ansible==2.7.6 \
+    boto \
+    botocore \ 
+    boto3 \
+    jinja2==2.9.6 \
+    netaddr \
+    awscli \
+
+RUN npm install -g aws-cdk
