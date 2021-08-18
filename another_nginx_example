@@ -9,3 +9,10 @@ Status: Downloaded newer image for nginx:1.12
 d60ba8573dd9e08f62ef62217f8ceac1779928a92e7971d76314400de0615cd6
 
 $ curl localhost:8080
+
+$ docker stop web-server
+$ docker start web-server
+
+$ docker logs web-server
+
+$ docker exec -it web-server bash
