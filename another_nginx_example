@@ -1,0 +1,11 @@
+$ docker run --name web-server -d -p 8080:80 nginx:1.12
+Unable to find image 'nginx:1.12' locally
+1.12: Pulling from library/nginx
+f2aa67a397c4: Pull complete
+e3eaf3d87fe0: Pull complete
+38cb13c1e4c9: Pull complete
+Digest: sha256:72daaf46f11cc753c4eab981cbf869919bd1fee3d2170a2adeac12400f494728
+Status: Downloaded newer image for nginx:1.12
+d60ba8573dd9e08f62ef62217f8ceac1779928a92e7971d76314400de0615cd6
+
+$ curl localhost:8080
