@@ -1,0 +1,5 @@
+FROM amazoncorretto:17
+
+RUN yum -y update && yum -y install python3.11 awscli jq
+
+RUN yum clean all
